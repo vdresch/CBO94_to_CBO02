@@ -4,8 +4,7 @@
 #       com a tabela.
 #
 from tika import parser
-import re
-import pickle
+import csv
 
 #Abre PDF com tabela de conversão
 raw = parser.from_file('convert.pdf')
@@ -16,6 +15,7 @@ raw['content'] = raw['content'].replace('X', '0')
 
 #Transforma em um dict
 dict_cbo = dict()
+dict_cbo['CBO2002'] = 'CBO1994'
 
 for i in raw['content'].splitlines():
     
@@ -25,6 +25,8 @@ for i in raw['content'].splitlines():
     if i[2].isnumeric():
         dict_cbo[i[6:12]] = i[:5]
 
-#Salva em um picle
-with open('Tabela_conversao_CBO.pkl', 'wb') as f:
-    pickle.dump(dict_cbo, f)
+#Salva em um csv
+with open('converted.csv', 'w') as csv_file:  
+    writer = csv.writer(csv_file)
+    for key, value in dict_cbo.items():
+       writer.writerow([key, value])
