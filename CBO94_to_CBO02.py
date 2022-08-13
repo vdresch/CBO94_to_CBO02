@@ -11,7 +11,7 @@ raw = parser.from_file('convert.pdf')
 
 #Limpa dados
 raw['content'] = raw['content'].replace('-', '')
-raw['content'] = raw['content'].replace('X', '0')
+raw['content'] = raw['content'].replace('X', '')
 
 #Transforma em um dict
 dict_cbo = dict()
