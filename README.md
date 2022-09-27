@@ -1,3 +1,7 @@
+# Deprecated!
+
+Acontece que existe sim uma tabela de conversão oficial em formato CSV, o que torna esse programa redundante. Para maior facilidade, fiz o upload desse CSV nesse repositório, com o nome de ```CBO94 - CBO2002 - Conversao com 90.csv```.
+
 # CBO94_to_CBO02
 
 ### O problema:
